@@ -393,29 +393,60 @@ npm start
 ✓ Found saved configuration:
 
 📊 Bank Accounts:
-   • URGP: abc123def456789...
-   • US.D: xyz789ghi012345...
+   • URGP: abc123def456789ghi012345jkl678901mno234567pqr890123stu456
+   • US.D: def789ghi012345jkl678901mno234567pqr890123stu456789vwx
 
 💳 Credit Cards:
-   • card456def789abc012...
+   • hij456klm789nop012qrs345tuv678wxy901zab234cde567fgh890
 
-[1/4] 🍪 Fetching cookies...
-✓ Using existing cookies (age: 0.1 hours)
+Continue with saved config? [Y/n] y
+════════════════════════════════════════
+
+🚀 Starting automation sequence...
+
+[1/4] 🍪 Checking authentication...
+✓ Cookies found
 
 [2/4] 💱 Fetching exchange rate...
-✅ Current rate: 1 USD = 39.8700 UYU
+
+> itau-uruguay-automation@1.0.0 get-rate
+> tsx get-exchange-rate.ts
+
+💱 Fetching USD → UYU exchange rate...
+✅ Current rate: 1 USD = 43.5000 UYU
+💾 Rate saved to: /Users/gaston/.itau_usd_rate.json
+
 
 [3/4] 📊 Fetching bank account balances...
-→ UYU account balance: 125,430.50 UYU | in USD 3,145.82
-→ USD account balance: 1,250.75 USD | in USD 1,250.75
-TOTAL → UYU 125,430.50 | USD 1,250.75
-GRAND → USD 4,396.57
+════════════════════════════════════════
+
+💱 Using exchange rate: 1 USD = 43.5 UYU
+→ UYU account (abc123def456789ghi012345jkl678901mno234567pqr890123stu456) balance:  125430.50 UYU | in USD 2883.91
+→ USD account (def789ghi012345jkl678901mno234567pqr890123stu456789vwx) balance:    1250.75 USD | in USD 1250.75
+TOTAL   → UYU 125430.50 | USD 1250.75
+GRAND   → USD 4134.66 (includes UYU→USD @ 43.5000)
 
 [4/4] 💳 Fetching credit card balances...
-2025-10 → UYU 9,993.77 | Total USD: 250.66
-2025-11 → UYU 7,171.64 | Total USD: 179.88
-...
-GRAND → USD 1,044.89
+════════════════════════════════════════
+
+💱 Using exchange rate: 1 USD = 43.5 UYU
+
+Fetching future balances for card hij456klm789nop012qrs345tuv678wxy901zab234cde567fgh890 …
+---------------------------------------------------------
+Fetching month 2025-10 … 2025-10 →  UYU 15234.89 | USD    0.00 | Total USD:  350.23
+Fetching month 2025-11 … 2025-11 →  UYU 12567.34 | USD    0.00 | Total USD:  288.91
+Fetching month 2025-12 … 2025-12 →  UYU  9876.12 | USD    0.00 | Total USD:  227.04
+Fetching month 2026-01 … 2026-01 →  UYU  8234.56 | USD    0.00 | Total USD:  189.30
+Fetching month 2026-02 … 2026-02 →  UYU  6543.21 | USD    0.00 | Total USD:  150.42
+Fetching month 2026-03 … 2026-03 →  UYU  5432.10 | USD    0.00 | Total USD:  124.88
+Fetching month 2026-04 … 2026-04 →  UYU  4321.09 | USD    0.00 | Total USD:   99.34
+Fetching month 2026-05 … 2026-05 →  UYU  3210.87 | USD    0.00 | Total USD:   73.81
+Fetching month 2026-06 … 2026-06 →  UYU  2109.76 | USD    0.00 | Total USD:   48.51
+Fetching month 2026-07 … 2026-07 →  UYU  1098.65 | USD    0.00 | Total USD:   25.25
+Fetching month 2026-08 … 2026-08 →  UYU   987.54 | USD    0.00 | Total USD:   22.70
+Fetching month 2026-09 … ---------------------------------------------------------
+TOTAL   → UYU 69616.13 | USD    0.00
+GRAND   → USD 1600.37 (includes UYU→USD @ 43.5000)
 
 ╔════════════════════════════════════════╗
 ║  ✨  All done! Have a great day! ✨   ║
