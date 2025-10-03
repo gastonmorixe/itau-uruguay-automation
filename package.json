@@ -1,0 +1,49 @@
+{
+  "name": "itau-uruguay-automation",
+  "version": "1.0.0",
+  "description": "Automated scripts to fetch and display Itau (Uruguay) bank account balances and credit card statements using Playwright + WebKit",
+  "main": "itau.fish",
+  "scripts": {
+    "start": "fish itau.fish",
+    "itau": "fish itau.fish",
+    "discover": "tsx discover-accounts.ts",
+    "get-cookies": "tsx get-cookies.ts",
+    "get-rate": "tsx get-exchange-rate.ts",
+    "accounts": "fish itau_accounts.fish",
+    "balance": "fish itau_balance.fish"
+  },
+  "keywords": [
+    "itau",
+    "uruguay",
+    "banking",
+    "automation",
+    "playwright",
+    "webkit",
+    "finance",
+    "scraping",
+    "cli"
+  ],
+  "author": "Gaston Morixe <gaston@gastonmorixe.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/itau-uruguay-automation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/itau-uruguay-automation/issues"
+  },
+  "homepage": "https://github.com/yourusername/itau-uruguay-automation#readme",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.6.2",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "playwright": "^1.55.1"
+  }
+}
