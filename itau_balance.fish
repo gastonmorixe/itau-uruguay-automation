@@ -18,7 +18,7 @@ set rate $ITAU_RATE
 # Load cookies from file
 source "$SCRIPT_DIR/load_cookies.fish"
 or begin
-    echo "⚠️  Cookie auto-loading failed. Please enter manually or run 'npm run get-cookies'"
+    echo "⚠️  Cookie auto-loading failed. Exiting."
     exit 1
 end
 set cookie $ITAU_COOKIE

@@ -197,8 +197,8 @@ end
 echo -e "$BLUE════════════════════════════════════════$NC\n"
 echo -e "$YELLOW🚀 Starting automation sequence...$NC\n"
 
-# Step 1: Get cookies
-echo -e "$BLUE"'[1/4]'" 🍪 Fetching cookies...$NC"
+# Step 1: Validate cookies (load_cookies.fish will handle expiry check)
+echo -e "$BLUE"'[1/4]'" 🍪 Checking authentication...$NC"
 if not test -f "$HOME/.itau_cookies.json"
     echo "No cookies found. Opening browser for login..."
     npm run get-cookies
@@ -207,18 +207,7 @@ if not test -f "$HOME/.itau_cookies.json"
         exit 1
     end
 else
-    # Check cookie age
-    set cookie_age (math (gdate +%s) - (gdate -d (jq -r '.timestamp' "$HOME/.itau_cookies.json") +%s))
-    if test $cookie_age -gt 86400  # 24 hours
-        echo -e "$YELLOW⚠️  Cookies are older than 24 hours. Refreshing...$NC"
-        npm run get-cookies
-        if test $status -ne 0
-            echo -e "\n$RED❌ Failed to get cookies. Exiting.$NC\n"
-            exit 1
-        end
-    else
-        echo -e "$GREEN✓ Using existing cookies (age: "(math $cookie_age / 3600)" hours)$NC"
-    end
+    echo -e "$GREEN✓ Cookies found$NC"
 end
 
 echo ""

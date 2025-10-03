@@ -17,7 +17,8 @@ set rate $ITAU_RATE
 # Load cookies from file
 source "$SCRIPT_DIR/load_cookies.fish"
 or begin
-    read -P "Enter your Itau cookie: " ITAU_COOKIE
+    echo "⚠️  Cookie auto-loading failed. Exiting."
+    exit 1
 end
 set cookie $ITAU_COOKIE
 
