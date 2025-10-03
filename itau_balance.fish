@@ -66,11 +66,19 @@ while true
         --data '{}')
 
     # parse out the two totals with jq (fallback to 0 if missing)
-    set u (echo $resp | jq '.itaulink_msg.data.datos.datosMovimientos.totalesPesos.totalGeneral // 0')
-    set d (echo $resp | jq '.itaulink_msg.data.datos.datosMovimientos.totalesDolares.totalGeneral // 0')
+    set u (echo $resp | jq -r '.itaulink_msg.data.datos.datosMovimientos.totalesPesos.totalGeneral // 0')
+    set d (echo $resp | jq -r '.itaulink_msg.data.datos.datosMovimientos.totalesDolares.totalGeneral // 0')
+
+    # Ensure values are numeric
+    if test -z "$u" -o "$u" = "null"
+        set u 0
+    end
+    if test -z "$d" -o "$d" = "null"
+        set d 0
+    end
 
     # stop if both zero
-    if test $u = 0 -a $d = 0
+    if test "$u" = "0" -a "$d" = "0"
         break
     end
 

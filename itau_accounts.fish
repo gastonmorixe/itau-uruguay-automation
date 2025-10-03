@@ -66,7 +66,12 @@ for pair in $argv
         --data "0:$code:$id")
 
     # extract saldoFinal (or 0 if missing)
-    set bal (echo $resp | jq '.itaulink_msg.data.movimientosMesActual.saldoFinal // 0')
+    set bal (echo $resp | jq -r '.itaulink_msg.data.movimientosMesActual.saldoFinal // 0')
+
+    # Ensure bal is numeric
+    if test -z "$bal" -o "$bal" = "null"
+        set bal 0
+    end
 
     set tt (math $bal "/" $realRate)
 
