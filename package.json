@@ -27,12 +27,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yourusername/itau-uruguay-automation.git"
+    "url": "git+https://github.com/gastonmorixe/itau-uruguay-automation.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/itau-uruguay-automation/issues"
+    "url": "https://github.com/gastonmorixe/itau-uruguay-automation/issues"
   },
-  "homepage": "https://github.com/yourusername/itau-uruguay-automation#readme",
+  "homepage": "https://github.com/gastonmorixe/itau-uruguay-automation#readme",
   "type": "commonjs",
   "engines": {
     "node": ">=18.0.0",
