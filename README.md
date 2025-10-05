@@ -1,3 +1,6 @@
+> [!NOTE]
+> Vibe-coded with Codex and Claude. *Use it at your own risk.*
+
 # Itau Bank Automation Scripts
 
 Automated scripts to fetch and display your Itau (Uruguay) bank account balances and credit card statements using WebKit automation for cookie management.
